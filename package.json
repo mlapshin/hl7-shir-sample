@@ -15,8 +15,7 @@
     "style-loader": "latest",
     "webpack": "latest",
     "extract-text-webpack-plugin": "latest",
-    "webpack-dev-server": "latest",
-    "L7": "latest"
+    "webpack-dev-server": "latest"
   },
   "engines": {
     "node": ">=0.10.0"

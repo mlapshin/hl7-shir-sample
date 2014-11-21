@@ -1,6 +1,10 @@
-<h1> {{::header}} </h1>
-
-<div class="alert alert-success" ng-repeat="entry in data.entry">
-  {{entry.content.note}}
+<div id="panes" class="container">
+  <div id="left-pane">
+    <h3>ADT message</h3>
+    <textarea ng-model="hl7"></textarea>
+  </div>
+  <div id="right-pane">
+    <h3>Resulting FHIR resource</h3>
+    <div><pre>{{ parsed | json }}</pre></div>
+  </div>
 </div>
-

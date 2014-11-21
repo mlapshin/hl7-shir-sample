@@ -1,0 +1,5 @@
+var definition, pegjs = require('pegjs');
+
+definition = "query =\n  segment:segment '|' field:ref '[' component:ref ']' {\n    return {\n        repeat: true,\n        selectors: [segment, field, component]\n    };\n  }\n  /\n  segment:segment '[' field:ref ']' {\n    return {\n        repeat: true,\n        selectors: [segment, field]\n    };\n  }\n  /\n  segment:segment toDate:field_selector field:field {\n    return {\n      toDate: field.toDate || toDate,\n      selectors: [segment].concat(field.selectors)\n    };\n  }\n\nfield =\n  field:ref toDate:component_selector component:ref {\n    return {\n      toDate: toDate,\n      selectors: [field, component]\n    };\n  }\n  /\n  field:ref {\n    return {\n      selectors: [field]\n    };\n  }\n\ncomponent_selector\n  =\n    '^' { return false; }\n    /\n    '@' { return true; }\n\nfield_selector\n  =\n    '|' { return false; }\n    /\n    '@' { return true; }\n\nsegment =\n  chars:[a-z0-9]i+ {\n    return chars.join('');\n  }\n\nref =\n  digits:[0-9]+ {\n    return Number(digits.join(''));\n  }\n";
+
+module.exports = pegjs.buildParser(definition);
