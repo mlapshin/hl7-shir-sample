@@ -3,8 +3,9 @@
     <h3>ADT message</h3>
     <textarea ng-model="hl7"></textarea>
   </div>
+
   <div id="right-pane">
-    <h3>Resulting FHIR resource</h3>
-    <div><pre>{{ parsed | json }}</pre></div>
+    <h3>Resulting FHIR resources</h3>
+    <pre>{{ result | json }}</pre>
   </div>
 </div>
