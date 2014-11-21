@@ -32,34 +32,5 @@ app.config ($routeProvider) ->
   rp.otherwise
     templateUrl: '/views/404.html'
 
-activate = (name)->
-  sitemap.main.forEach (x)->
-    if x.name == name
-      x.active = true
-    else
-      delete x.active
-
-app.config ($fhirProvider)->
-  $fhirProvider.baseUrl = 'http://try-fhirplace.hospital-systems.com'
-
-app.run ($rootScope)->
-  $rootScope.sitemap = sitemap
-  $rootScope.$on  "$routeChangeStart", (event, next, current)->
-    activate(next.name)
-
-app.controller 'WelcomeCtrl', ($scope, $fhir)->
-  $scope.header = "WelcomeCtrl"
-  $fhir.search(type: 'Alert', query: {})
-    .success (data)->
-      $scope.data = data
-
-app.controller 'Page1Ctrl', ($scope, $routeParams)->
-  $scope.header = "Page1Ctrl"
-  $scope.params = $routeParams
-
-app.controller 'Page2Ctrl', ($scope, $routeParams)->
-  $scope.header = "Page2Ctrl"
-  $scope.params = $routeParams
-
-app.controller 'ProfileCtrl', ($scope, $routeParams)->
-  $scope.header = "ProfileCtrl"
+app.controller "WelcomeCtrl", () ->
+  console.log "herer"
