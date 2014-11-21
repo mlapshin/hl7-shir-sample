@@ -1,0 +1,7 @@
+require('../views/index.html')
+require('../views/404.html')
+require('../views/helo.html')
+require('../views/index.html')
+require('../views/page1.html')
+require('../views/page2.html')
+require('../views/profile.html')
