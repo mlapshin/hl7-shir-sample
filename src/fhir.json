@@ -2,5 +2,6 @@
   "name": "hl7-fhir-sample",
   "title": "HL7 v2 to FHIR sample mapper",
   "version": "0.0.1",
-  "description": "Example of how HL7v2 could be mapped to FHIR"
+  "description": "Example of how HL7v2 could be mapped to FHIR",
+  "image": "medkit"
 }
